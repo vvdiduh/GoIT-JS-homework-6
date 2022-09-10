@@ -10,5 +10,3 @@ const handleInputName = (event) => {
 }
 
 inputEl.addEventListener('input', handleInputName);
-
-// const name = (event) => {inputEl.textContent = event.target.}
