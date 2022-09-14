@@ -8,7 +8,18 @@ const focusInput = (event) => {
     const requredLength = Number(dataset.length); 
     const valueLength = value.length;
 
-    requredLength === valueLength ? inputEl.classList.add('valid') : inputEl.classList.add('invalid');
+    if (requredLength === valueLength) {
+        inputEl.classList.remove('invalid');
+        inputEl.classList.add('valid');
+        return;
+    }   
+
+    if (requredLength > valueLength || requredLength < valueLength) {
+        inputEl.classList.remove('valid');
+        inputEl.classList.add('invalid');
+        return;
+    }
+        
 
 }
 
