@@ -18,8 +18,17 @@ galleryListEl.style.listStyle = 'none';
 galleryListEl.style.display = 'flex';
 galleryListEl.style.justifyContent = 'space-evenly'; 
 
+const itemImg = []
 
+images.map(image => {
+  const { url, alt } = image;
+  itemImg.push(`<li><img src='${url}' alt='${alt}' height="200"></li>`)
+});
+// console.log(...itemImg);
 
+galleryListEl.insertAdjacentHTML('afterbegin', itemImg)
+
+console.log(galleryListEl);
 // const createLiEl = (url, alt) => {
 //   const itemEl = document.createElement('li');
 //   galleryListEl.append(itemEl);
@@ -31,9 +40,9 @@ galleryListEl.style.justifyContent = 'space-evenly';
 // }
 
 
-for (const {url, alt} of images) {
-  // createLiEl(url, alt);
-  galleryListEl.insertAdjacentHTML('afterbegin', `<li><img src='${url}' alt='${alt}' height="200"></li>`);
-}
+// for (const {url, alt} of images) {
+//   // createLiEl(url, alt);
+//   galleryListEl.insertAdjacentHTML('afterbegin', `<li><img src='${url}' alt='${alt}' height="200"></li>`);
+// }
 
-console.log(galleryListEl);
+
