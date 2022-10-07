@@ -18,15 +18,30 @@ galleryListEl.style.listStyle = 'none';
 galleryListEl.style.display = 'flex';
 galleryListEl.style.justifyContent = 'space-evenly'; 
 
-const itemImg = []
+// const itemImg = []
 
-images.map(image => {
-  const { url, alt } = image;
-  itemImg.push(`<li><img src='${url}' alt='${alt}' height="200"></li>`)
-});
+const markupGallery = createImgEl(images); 
+
+function createImgEl(images) {
+    return images
+        .map(({ url, alt }) => {
+            return `
+        <li>
+          <img src='${url}' alt='${alt}' height="200">
+        </li>
+        `;
+        })
+        .join('');
+}
+
+
+// images.map(image => {
+//   const { url, alt } = image;
+//   itemImg.push(`<li><img src='${url}' alt='${alt}' height="200"></li>`)
+// });
 // console.log(...itemImg);
 
-galleryListEl.insertAdjacentHTML('afterbegin', itemImg)
+galleryListEl.insertAdjacentHTML('afterbegin', markupGallery)
 
 console.log(galleryListEl);
 // const createLiEl = (url, alt) => {
